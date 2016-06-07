@@ -10,18 +10,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
 
-    <title>OAMK Opinnäytetyöt eh?</title>
+    <title>OAMK Opinnäytetyöt</title>
 
     <!-- SCROLLS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
     <style>
         html                    { overflow-y:scroll; }
         body                    { padding-top:50px; }
         #todo-list              { margin-bottom:30px; }
-			
+		.modal {
+    
+}
 
     </style>
 
@@ -51,11 +52,15 @@
                 <div class="checkbox" ng-repeat="todo in todos">
                     <label>
 					<h1>
-                        <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.aihe }}
+                        <button type="button" class="btn btn-danger" ng-click="deleteTodo(todo._id)">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button> {{ todo.aihe }}
 					</h1>
 					</label>
 					<br>
-						{{ todo.kuvaus }}
+						<button type="button" class="btn btn-info">
+							<span class="glyphicon glyphicon-edit"></span>
+						</button> {{ todo.kuvaus }}
                     
                 </div>
 
@@ -68,13 +73,13 @@
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-lg">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">Lisää opinnäytetyö</h4>
         </div>
         <div class="modal-body">
           <p><!-- FORM TO CREATE TODOS -->
@@ -84,8 +89,13 @@
                     <div class="form-group">
 
                         <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-                        <input type="text" maxlength="50" class="form-control input-lg" placeholder="Aihe (max. 50 merkkiä)" ng-model="formData.aihe">
-						<input type="text" maxlength="255"class="form-control input-lg" placeholder="Kuvaus (max. 255 merkkiä)" ng-model="formData.kuvaus">
+						<form role="form">
+						    <label for="aihe">Aihe:</label>
+                            <input type="text" maxlength="50" size="50" class="form-control input-lg" id="aihe" placeholder="Aihe (max. 50 merkkiä)" ng-model="formData.aihe">
+						
+						    <label for="kuvaus">Kuvaus:</label>
+						    <textarea class="form-control" maxlength="255" rows="5" id="kuvaus" placeholder="Kuvaus (max. 255 merkkiä)" ng-model="formData.kuvaus"></textarea>
+						</form>
                     </div>
 
                     <!-- createToDo() WILL CREATE NEW TODOS -->
