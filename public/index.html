@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
 
-    <title>OAMK Opinn‰ytetyˆt</title>
+    <title>OAMK Opinn√§ytety√∂t</title>
 
     <!-- SCROLLS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -18,10 +18,12 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <style>
         html                    { overflow-y:scroll; }
-        body                    { padding-top:50px; }
+        body                    { padding-top:50px;
+								  padding-bottom:100px;}
         #todo-list              { margin-bottom:30px; }
-		.modal {
-    
+		hr {
+    border: 1px solid #BDBDBD;
+	width="98%";
 }
 
     </style>
@@ -38,36 +40,39 @@
 
         <!-- HEADER AND TODO COUNT -->
         <div class="jumbotron text-center">
-            <h1>OAMK Opinn‰ytetyˆt</h1>
+            <h1>OAMK Opinn√§ytety√∂t</h1>
         </div>
 
 		<!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg text-center" data-toggle="modal" data-target="#myModal">Lis‰‰ uusi aihe</button>
+  <button type="button" class="btn btn-info btn-lg text-center" data-toggle="modal" data-target="#myModal">Lis√§√§ uusi aihe</button>
 		
         <!-- TODO LIST -->
-        <div id="todo-list" class="row">
-            <div class="col-sm-10>
-
+		
+            
+			<div class="container">
                 <!-- LOOP OVER THE TODOS IN $scope.todos -->
                 <div class="checkbox" ng-repeat="todo in todos">
-                    <label>
-					<h1>
-                        <button type="button" class="btn btn-danger" ng-click="deleteTodo(todo._id)">
-							<span class="glyphicon glyphicon-trash"></span>
-						</button> {{ todo.aihe }}
-					</h1>
-					</label>
-					<br>
-						<button type="button" class="btn btn-info">
+				<hr>
+				<div class="row">
+					<div class="col-sm-1">                   					
+                        <button type="button" class="btn btn-info">
 							<span class="glyphicon glyphicon-edit"></span>
-						</button> {{ todo.kuvaus }}
-                    
+						</button> 
+					</div>
+					<div class="col-sm-10">		
+						<h1>{{ todo.aihe }}</h1></div>
+				</div>     
+				<div class="row">
+					<div class="col-sm-1">
+						<button type="button" class="btn btn-danger" ng-click="deleteTodo(todo._id)">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+					</div>      
+					<div class="col-sm-10">	
+						{{ todo.kuvaus }}</div>                  
                 </div>
-
-            </div>
-        </div>
-
-        <div class="container">
+                </div>
+			</div>
   
   
 
@@ -79,7 +84,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Lis‰‰ opinn‰ytetyˆ</h4>
+          <h4 class="modal-title">Lis√§√§ uusi opinn√§ytety√∂</h4>
         </div>
         <div class="modal-body">
           <p><!-- FORM TO CREATE TODOS -->
@@ -91,21 +96,21 @@
                         <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
 						<form role="form">
 						    <label for="aihe">Aihe:</label>
-                            <input type="text" maxlength="50" size="50" class="form-control input-lg" id="aihe" placeholder="Aihe (max. 50 merkki‰)" ng-model="formData.aihe">
+                            <input type="text" maxlength="50" size="50" class="form-control input-lg" id="aihe" placeholder="Aihe (max. 50 merkki√§)" ng-model="formData.aihe">
 						
 						    <label for="kuvaus">Kuvaus:</label>
-						    <textarea class="form-control" maxlength="255" rows="5" id="kuvaus" placeholder="Kuvaus (max. 255 merkki‰)" ng-model="formData.kuvaus"></textarea>
+						    <textarea class="form-control" maxlength="255" rows="5" id="kuvaus" placeholder="Kuvaus (max. 255 merkki√§)" ng-model="formData.kuvaus"></textarea>
 						</form>
                     </div>
 
                     <!-- createToDo() WILL CREATE NEW TODOS -->
-                    <button type="submit" class="btn btn-primary btn-lg" data-dismiss="modal" ng-click="createTodo()">Lis‰‰</button>
+                    <button type="submit" class="btn btn-primary btn-lg" data-dismiss="modal" ng-click="createTodo()">Lis√§√§</button>
                 </form>
             </div>
         </div></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
         </div>
       </div>
       
