@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
 
-    <title>OAMK Opinnäytetyöt</title>
+    <title>OAMK Opinnäytetyö- ja projektiaiheita</title>
 
     <!-- SCROLLS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -40,11 +40,11 @@
 
         <!-- HEADER AND TODO COUNT -->
         <div class="jumbotron text-center">
-            <h1>OAMK Opinnäytetyöt</h1>
+            <h1>OAMK Opinnäytetyö- ja projektiaiheita</h1>
         </div>
 
 		<!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg text-center" data-toggle="modal" data-target="#myModal">Lisää uusi aihe</button>
+  <button type="button" class="btn btn-primary btn-lg text-center" data-toggle="modal" data-target="#myModal">Lisää uusi aihe</button>
 		
         <!-- TODO LIST -->
 		
@@ -54,21 +54,21 @@
                 <div class="checkbox" ng-repeat="todo in todos">
 				<hr>
 				<div class="row">
-					<div class="col-sm-1">                   					
+					<div class="col-md-1">                   					
                         <button type="button" class="btn btn-info">
 							<span class="glyphicon glyphicon-edit"></span>
 						</button> 
 					</div>
-					<div class="col-sm-10">		
+					<div class="col-md-10">		
 						<h1>{{ todo.aihe }}</h1></div>
 				</div>     
 				<div class="row">
-					<div class="col-sm-1">
+					<div class="col-md-1">
 						<button type="button" class="btn btn-danger" ng-click="deleteTodo(todo._id)">
 							<span class="glyphicon glyphicon-trash"></span>
 						</button>
 					</div>      
-					<div class="col-sm-10">	
+					<div class="col-md-10">	
 						{{ todo.kuvaus }}</div>                  
                 </div>
                 </div>
