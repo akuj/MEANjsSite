@@ -39,6 +39,8 @@
 <!-- SET THE CONTROLLER AND GET ALL TODOS -->
 <body ng-controller="mainController">
     <div class="container">
+	
+		
 
         <!-- HEADER AND TODO COUNT -->
         <div class="jumbotron text-center">
@@ -46,7 +48,8 @@
         </div>
 
 		<!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-primary btn-lg text-center" data-toggle="modal" data-target="#myModal">Lisää uusi aihe</button>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginmodal">Kirjaudu sisään</button>
+		<button type="button" class="btn btn-primary btn-lg text-center" data-toggle="modal" data-target="#myModal">Lisää uusi aihe</button>
 		
         <!-- TODO LIST -->
 		
@@ -118,6 +121,50 @@
       
     </div>
   </div>
+  
+  <!-- Modal -->
+<div id="loginmodal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Lisää uusi opinnäytetyö</h4>
+        </div>
+        <div class="modal-body">
+          <p><!-- FORM TO CREATE TODOS -->
+        <div id="todo-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <form>
+                    <div class="form-group">
+
+                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+						<form role="form">
+						    <label for="aihe">Käyttäjätunnus:</label>
+                            <input type="text" class="form-control input-lg" id="user">
+						
+						    <label for="kuvaus">Salasana:</label>
+							<input type="text" class="form-control input-lg" id="password" >
+						    
+						</form>
+                    </div>
+
+                    <!-- createToDo() WILL CREATE NEW TODOS -->
+                    <button type="submit" class="btn btn-primary btn-lg" data-dismiss="modal" ng-click="createTodo()">Kirjaudu</button>
+                </form>
+            </div>
+        </div></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+        </div>
+      </div>
+
+  </div>
+</div>
+  
+
   
 </div>
 
